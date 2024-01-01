@@ -10,7 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dcsrock1/Projects/CDF-16/Emulator/src/cpu.cpp" "CMakeFiles/CDF-16-EMU.dir/src/cpu.cpp.o" "gcc" "CMakeFiles/CDF-16-EMU.dir/src/cpu.cpp.o.d"
   "/home/dcsrock1/Projects/CDF-16/Emulator/src/gpu.cpp" "CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.o" "gcc" "CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.o.d"
-  "/home/dcsrock1/Projects/CDF-16/Emulator/src/logger.cpp" "CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o" "gcc" "CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o.d"
   "/home/dcsrock1/Projects/CDF-16/Emulator/src/main.cpp" "CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o" "gcc" "CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o.d"
   "/home/dcsrock1/Projects/CDF-16/Emulator/src/memory.cpp" "CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o" "gcc" "CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o.d"
   "/home/dcsrock1/Projects/CDF-16/Emulator/src/util.cpp" "CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o" "gcc" "CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o.d"

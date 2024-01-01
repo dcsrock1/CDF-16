@@ -97,24 +97,10 @@ CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dcsrock1/Projects/CDF-16/Emulator/src/gpu.cpp -o CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.s
 
-CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o: CMakeFiles/CDF-16-EMU.dir/flags.make
-CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o: /home/dcsrock1/Projects/CDF-16/Emulator/src/logger.cpp
-CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o: CMakeFiles/CDF-16-EMU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o -MF CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o.d -o CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o -c /home/dcsrock1/Projects/CDF-16/Emulator/src/logger.cpp
-
-CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dcsrock1/Projects/CDF-16/Emulator/src/logger.cpp > CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.i
-
-CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dcsrock1/Projects/CDF-16/Emulator/src/logger.cpp -o CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.s
-
 CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o: CMakeFiles/CDF-16-EMU.dir/flags.make
 CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o: /home/dcsrock1/Projects/CDF-16/Emulator/src/main.cpp
 CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o: CMakeFiles/CDF-16-EMU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o -MF CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o.d -o CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o -c /home/dcsrock1/Projects/CDF-16/Emulator/src/main.cpp
 
 CMakeFiles/CDF-16-EMU.dir/src/main.cpp.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/CDF-16-EMU.dir/src/main.cpp.s: cmake_force
 CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o: CMakeFiles/CDF-16-EMU.dir/flags.make
 CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o: /home/dcsrock1/Projects/CDF-16/Emulator/src/memory.cpp
 CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o: CMakeFiles/CDF-16-EMU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o -MF CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o.d -o CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o -c /home/dcsrock1/Projects/CDF-16/Emulator/src/memory.cpp
 
 CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.i: cmake_force
@@ -142,7 +128,7 @@ CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.s: cmake_force
 CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o: CMakeFiles/CDF-16-EMU.dir/flags.make
 CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o: /home/dcsrock1/Projects/CDF-16/Emulator/src/util.cpp
 CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o: CMakeFiles/CDF-16-EMU.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o -MF CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o.d -o CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o -c /home/dcsrock1/Projects/CDF-16/Emulator/src/util.cpp
 
 CMakeFiles/CDF-16-EMU.dir/src/util.cpp.i: cmake_force
@@ -157,7 +143,6 @@ CMakeFiles/CDF-16-EMU.dir/src/util.cpp.s: cmake_force
 CDF__16__EMU_OBJECTS = \
 "CMakeFiles/CDF-16-EMU.dir/src/cpu.cpp.o" \
 "CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.o" \
-"CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o" \
 "CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o" \
 "CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o" \
 "CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o"
@@ -167,13 +152,12 @@ CDF__16__EMU_EXTERNAL_OBJECTS =
 
 CDF-16-EMU: CMakeFiles/CDF-16-EMU.dir/src/cpu.cpp.o
 CDF-16-EMU: CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.o
-CDF-16-EMU: CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o
 CDF-16-EMU: CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o
 CDF-16-EMU: CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o
 CDF-16-EMU: CMakeFiles/CDF-16-EMU.dir/src/util.cpp.o
 CDF-16-EMU: CMakeFiles/CDF-16-EMU.dir/build.make
 CDF-16-EMU: CMakeFiles/CDF-16-EMU.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable CDF-16-EMU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dcsrock1/Projects/CDF-16/Emulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable CDF-16-EMU"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CDF-16-EMU.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/CDF-16-EMU.dir/src/cpu.cpp.o.d"
   "CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.o"
   "CMakeFiles/CDF-16-EMU.dir/src/gpu.cpp.o.d"
-  "CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o"
-  "CMakeFiles/CDF-16-EMU.dir/src/logger.cpp.o.d"
   "CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o"
   "CMakeFiles/CDF-16-EMU.dir/src/main.cpp.o.d"
   "CMakeFiles/CDF-16-EMU.dir/src/memory.cpp.o"
