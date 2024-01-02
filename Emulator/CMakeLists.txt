@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.25)
 project(CDF-16) 
 
-set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/include)
-set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set(INCLUDE_DIR src/include)
+set(SRC_DIR src)
 
 file(GLOB HEADER_FILES ${INCLUDE_DIR}/*.hpp)
 
