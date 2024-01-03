@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
+#include <sstream>
+#include <cstdint>
 
 
 //Function to retrieve the data and time in the format DD/MM/YYYY, hh:mm:ss.
@@ -21,4 +23,16 @@ std::string getDateTime() {
     
     //Return the formatted Date and Time.
     return formattedDateTime.str();
+}
+
+std::string bths(uint8_t num) {
+    std::stringstream stream;
+    stream << "0x" << std::hex << std::uppercase << num;
+    return stream.str();
+}
+
+std::string wths(uint16_t num) {
+    std::stringstream stream;
+    stream << "0x" << std::hex << std::uppercase << num;
+    return stream.str();
 }
