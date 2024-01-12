@@ -1,5 +1,6 @@
 #include "include/memory.hpp"
 #include "include/logger.hpp"
+#include "include/util.hpp"
 #include <cstdint>
 #include <fstream>
 constexpr size_t MAX_FILE_SIZE = 65536;
@@ -69,9 +70,9 @@ void Memory::loadROM(std::string filename) {
         error("Bad bit has been located in ROM file, possibly corrupt file");
         exit(1);
     }
-
     file.close();
-    for (int i = 0; i <= fileSize; i++) {
-        memoryB0[i] = bytes[i];
+    std::copy(std::begin(bytes), std::end(bytes), std::begin(memoryB0));
+    for (int i = 0; i < memoryB0.size(); i++) {
+        debug(bths(memoryB0[i]));
     }
 }

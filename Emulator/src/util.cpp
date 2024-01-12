@@ -25,14 +25,28 @@ std::string getDateTime() {
     return formattedDateTime.str();
 }
 
-std::string bths(uint8_t num) {
-    std::stringstream stream;
-    stream << "0x" << std::hex << std::uppercase << num;
-    return stream.str();
+struct HexCharStruct
+{
+  unsigned char c;
+  HexCharStruct(unsigned char _c) : c(_c) { }
+};
+
+inline std::ostream& operator<<(std::ostream& o, const HexCharStruct& hs)
+{
+  return (o << std::hex << (int)hs.c);
 }
 
-std::string wths(uint16_t num) {
-    std::stringstream stream;
-    stream << "0x" << std::hex << std::uppercase << num;
-    return stream.str();
+inline HexCharStruct hex(unsigned char _c)
+{
+  return HexCharStruct(_c);
+}
+
+std::string bths(uint8_t num) {
+    if (!num) {
+        return "0x00";
+    } else {
+        std::stringstream stream;
+        stream << "0x" << hex(num);
+        return stream.str();
+    }      
 }
