@@ -76,3 +76,9 @@ void Memory::loadROM(std::string filename) {
         debug(bths(memoryB0[i]));
     }
 }
+
+void Memory::reset() {
+    memoryB0.fill(0);
+    memoryB1.fill(0);
+    
+}

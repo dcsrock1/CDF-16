@@ -10,6 +10,7 @@ public:
     void setByte(uint16_t address, int8_t data, bool bankSelector, uint64_t& cycles);
     void setWord(uint16_t address, int16_t data, bool bankSelector, uint64_t& cycles);
     void loadROM(std::string filename);
+    void reset();
 private:
     std::array<int8_t, 65536> memoryB0, memoryB1;
 };  

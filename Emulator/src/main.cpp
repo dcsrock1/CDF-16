@@ -1,15 +1,19 @@
+#include "include/gpu.hpp"
 #include "include/logger.hpp"
 #include "include/memory.hpp"
+#include "include/storage.hpp"
 #include "include/util.hpp"
-#include <string>
+#include "include/cpu.hpp"
 
 int main(int argc, char* argv[]) {
+    info("Starting object initialisation");
     Memory memory;
-    memory.loadROM("main.ROM");
-    uint64_t cycles = 0;
-    uint8_t n = memory.getByte(0xFFFC, 0, cycles);
-    std::string a = bths(n);
-    info(a);
-    memory.setByte(0xFFFC, 0xFC, 0, cycles);
-    info(bths(memory.getByte(0xFFFC, 0, cycles)));
+    debug("Memory class initialised");
+    Storage storage;
+    debug("Storage class initialised");
+    GPU gpu;
+    debug("GPU class initialised");
+    CPU cpu(memory, storage, gpu);
+    debug("CPU class initialised");
+    info("All objects initialised");
 }
