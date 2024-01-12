@@ -80,5 +80,4 @@ void Memory::loadROM(std::string filename) {
 void Memory::reset() {
     memoryB0.fill(0);
     memoryB1.fill(0);
-    
 }

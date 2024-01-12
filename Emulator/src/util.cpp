@@ -50,3 +50,13 @@ std::string bths(uint8_t num) {
         return stream.str();
     }      
 }
+
+std::string wths(uint16_t num) {
+  if (!num) {
+    return "0x00";
+  } else {
+    std::stringstream stream;
+    stream << "0x" << hex(num >> 8) << hex(num & 0xFF);
+    return stream.str();
+  }
+}

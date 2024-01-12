@@ -16,4 +16,5 @@ int main(int argc, char* argv[]) {
     CPU cpu(memory, storage, gpu);
     debug("CPU class initialised");
     info("All objects initialised");
+    info(wths(65535));
 }

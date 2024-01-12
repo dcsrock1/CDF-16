@@ -1,3 +1,0 @@
-/home/dcsrock1/Projects/Emulator/build/CMakeFiles/CDF-16-EMU.dir
-/home/dcsrock1/Projects/Emulator/build/CMakeFiles/edit_cache.dir
-/home/dcsrock1/Projects/Emulator/build/CMakeFiles/rebuild_cache.dir
