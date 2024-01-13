@@ -6,14 +6,14 @@
 #include "include/cpu.hpp"
 
 int main(int argc, char* argv[]) {
-    info("Starting object initialisation");
+    logInfo("Starting object initialisation");
     Memory memory;
-    debug("Memory class initialised");
+    logDebug("Memory class initialised");
     Storage storage;
-    debug("Storage class initialised");
+    logDebug("Storage class initialised");
     GPU gpu;
-    debug("GPU class initialised");
+    logDebug("GPU class initialised");
     CPU cpu(memory, storage, gpu);
-    debug("CPU class initialised");
-    info("All objects initialised");
+    logDebug("CPU class initialised");
+    logInfo("All objects initialised");
 }

@@ -1,5 +1,7 @@
 #include "include/storage.hpp"
 #include "include/util.hpp"
+#include <cstddef>
+
 
 int8_t Storage::getByte(uint16_t address, bool bankSelector, uint64_t& cycles) {
     cycles++;
@@ -41,7 +43,7 @@ void Storage::setWord(uint16_t address, int16_t data, bool bankSelector, uint64_
     }
 }
 void Storage::reset() {
-    storageB0.fill(NULL);
-    storageB1.fill(NULL);
+    storageB0.fill(0);
+    storageB1.fill(0);
 }
 
