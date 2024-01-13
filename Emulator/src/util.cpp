@@ -5,6 +5,7 @@
 #include <sstream>
 #include <cstdint>
 
+constexpr bool null = 0;
 
 //Function to retrieve the data and time in the format DD/MM/YYYY, hh:mm:ss.
 std::string getDateTime() {
@@ -40,21 +41,24 @@ inline HexCharStruct hex(unsigned char _c)
 {
   return HexCharStruct(_c);
 }
-
+//Convert a unsigned 8 bit integer to a string format 0x<hex value>
 std::string bths(uint8_t num) {
     if (!num) {
         return "0x00";
     } else {
+        //Create a string stream for the converted family
         std::stringstream stream;
         stream << "0x" << hex(num);
         return stream.str();
     }      
 }
 
+//Convert a unsigned 16 bit integer to a string format 0x<hex value>
 std::string wths(uint16_t num) {
   if (!num) {
     return "0x00";
   } else {
+    //Create a string stream for the converted family
     std::stringstream stream;
     stream << "0x" << hex(num >> 8) << hex(num & 0xFF);
     return stream.str();

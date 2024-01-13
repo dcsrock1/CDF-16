@@ -5,6 +5,7 @@
 #include <fstream>
 constexpr size_t MAX_FILE_SIZE = 65536;
 
+//Function to get byte from memory banks
 int8_t Memory::getByte(uint16_t address, bool bankSelector, uint64_t& cycles) {
     cycles++;
     if (bankSelector) {
@@ -51,7 +52,7 @@ void Memory::loadROM(std::string filename) {
         exit(1);
     }
 
-    // Determine the file size
+    //Determine the file size
     file.seekg(0, std::ios::end);
     std::streampos fileSize = file.tellg();
     file.seekg(0, std::ios::beg);
@@ -63,9 +64,10 @@ void Memory::loadROM(std::string filename) {
 
     std::array<char, MAX_FILE_SIZE> bytes;
 
-    // Read the file content into the array
+    //Read the file content into the array
     file.read(bytes.data(), fileSize);
 
+    //Bad bit detection
     if (file.bad()) {
         error("Bad bit has been located in ROM file, possibly corrupt file");
         exit(1);
@@ -78,6 +80,6 @@ void Memory::loadROM(std::string filename) {
 }
 
 void Memory::reset() {
-    memoryB0.fill(0);
-    memoryB1.fill(0);
+    memoryB0.fill(NULL);
+    memoryB1.fill(NULL);
 }
