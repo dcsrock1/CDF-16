@@ -1,6 +1,5 @@
 #include "include/memory.hpp"
 #include "include/logger.hpp"
-#include "include/util.hpp"
 #include <cstdint>
 #include <fstream>
 #include <cstddef>
@@ -116,10 +115,10 @@ void Memory::dumpMem(std::string filenameB0, std::string filenameB1) {
 
 //Nulls all bytes in both memory banks
 void Memory::reset() {
-    logInfo("Starting memory bank reset");
-    logDebug("Nulling memory bank 0");
-    memoryB0.fill(0);
-    logDebug("Nulling memory bank 1");
-    memoryB1.fill(0);
+    logInfo("Starting memory bank reset...");
+    logDebug("Nulling memory bank 0...");
+    memoryB0.fill(0); //Clear bank 0
+    logDebug("Nulling memory bank 1...");
+    memoryB1.fill(0); //Clearing bank 1
     logInfo("Memory bank reset complete");
 }

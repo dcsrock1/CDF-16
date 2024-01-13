@@ -2,9 +2,9 @@
 #include "include/logger.hpp"
 #include "include/memory.hpp"
 #include "include/storage.hpp"
-#include "include/util.hpp"
 #include "include/cpu.hpp"
 
+//Main program entry point
 int main(int argc, char* argv[]) {
     logInfo("Starting object initialisation");
     Memory memory;

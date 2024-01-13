@@ -4,7 +4,6 @@
 #include <ctime>
 #include <sstream>
 #include <cstdint>
-#include <cstddef>
 
 //Function to retrieve the data and time in the format DD/MM/YYYY, hh:mm:ss.
 std::string getDateTime() {
