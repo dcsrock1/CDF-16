@@ -3,7 +3,8 @@
 #include <iostream>
 #include <fstream>
 
-void debug(std::string msg) {
+void logDebug(std::string msg) {
+    //Print the formatted data to the console
     std::cout << "[\033[34mDEBUG\033[0m][" << getDateTime() << "]: " << msg << "\n";
     std::ofstream file;
     file.open(LOG_FILE, std::ios::app);
@@ -11,7 +12,7 @@ void debug(std::string msg) {
     file.close();
 }
 
-void info(std::string msg) {
+void logInfo(std::string msg) {
     std::cout << "[\033[32mINFO\033[0m][" << getDateTime() << "]: " << msg << "\n";
     std::ofstream file;
     file.open(LOG_FILE, std::ios::app);
@@ -19,7 +20,7 @@ void info(std::string msg) {
     file.close();
 }
 
-void warning(std::string msg) {
+void logWarning(std::string msg) {
     std::cout << "[\033[33mWARNING\033[0m][" << getDateTime() << "]: " << msg << "\n";
     std::ofstream file;
     file.open(LOG_FILE, std::ios::app);
@@ -27,7 +28,7 @@ void warning(std::string msg) {
     file.close();
 }
 
-void error(std::string msg) {
+void logError(std::string msg) {
     std::cout << "[\033[31mWARNING\033[0m][" << getDateTime() << "]: " << msg << "\n";
     std::ofstream file;
     file.open(LOG_FILE, std::ios::app);
