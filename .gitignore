@@ -1,2 +1,4 @@
-/.gitignore
+/Assembler/build/
 /Emulator/build/
+/Compiler/build/
+/Operating-system/build/
