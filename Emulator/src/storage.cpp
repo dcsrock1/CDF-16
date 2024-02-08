@@ -2,23 +2,33 @@
 #include "include/logger.hpp"
 #include "include/util.hpp"
 #include <string>
+#include <cstdio>
 
 void Storage::loadImage(std::string imageFile, bool bankSelector) {
+    if (bankSelector) {
+        logInfo("Loading image from file into storage bank one...");
+    } else {
+        logInfo("Loading image from file into storage bank zero...");
+    }
     std::fstream file(imageFile, std::ios::binary);
     //Check if file is open
+
     if (!file.is_open()) {
         logError("IMG file cannot be opened as it has already been opened by another process");
         exit(1);
     }
 
     //Determine the file size
+    logDebug("Determining IMG file size");
     file.seekg(0, std::ios::end);
     std::streampos fileSize = file.tellg();
     file.seekg(0, std::ios::beg);
-
-    if (fileSize > MAX_FILE_SIZE) {
+    logDebug("Running size check on selected IMG file...");
+    if (fileSize == MAX_FILE_SIZE) {
         logError("IMG file is larger then the internal storage");
         exit(1);
+    } else {
+        logDebug("Size check on selected IMG file has been completed");
     }
 
     std::array<char, MAX_FILE_SIZE> bytes;
@@ -38,6 +48,7 @@ void Storage::loadImage(std::string imageFile, bool bankSelector) {
     } else {
         std::copy(std::begin(bytes), std::end(bytes), std::begin(storageB0));
     }
+    logInfo("");
 }
 
 //Function to pull a byte from a storage bank
