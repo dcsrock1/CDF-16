@@ -1,10 +1,10 @@
 #include "include/memory.hpp"
 #include "include/logger.hpp"
+#include "include/util.hpp"
 #include <cstdint>
+#include <cstdio>
 #include <fstream>
 #include <cstddef>
-
-constexpr size_t MAX_FILE_SIZE = 65536;
 
 //Function to get byte from memory banks
 int8_t Memory::getByte(uint16_t address, bool bankSelector, uint64_t& cycles) {
@@ -65,7 +65,7 @@ void Memory::loadROM(std::string filename, bool bankSelector) {
     std::ifstream file(filename, std::ios::binary);
     //Check if file is open
     if (!file.is_open()) {
-        logError("Memory file cannot be opened as it has already been opened by another process");
+        logError("IMG file cannot be opened as it has already been opened by another process");
         exit(1);
     }
 
@@ -75,7 +75,7 @@ void Memory::loadROM(std::string filename, bool bankSelector) {
     file.seekg(0, std::ios::beg);
 
     if (fileSize > MAX_FILE_SIZE) {
-        logError("ROM file is larger then the internal memory");
+        logError("IMG file is larger then the internal storage");
         exit(1);
     }
 
@@ -86,7 +86,7 @@ void Memory::loadROM(std::string filename, bool bankSelector) {
 
     //Bad bit detection
     if (file.bad()) {
-        logError("Bad bit has been located in ROM file, possibly corrupt file");
+        logError("Bad bit has been located in IMG file, possibly corrupt file");
         exit(1);
     }
     file.close();
@@ -99,18 +99,19 @@ void Memory::loadROM(std::string filename, bool bankSelector) {
     
 }
 
-void Memory::dumpMem(std::string filenameB0, std::string filenameB1) {
-    std::ofstream fileBank0(filenameB0, std::ios::binary);
-    std::ofstream fileBank1(filenameB1, std::ios::binary);
+void Memory::dumpMem(std::string dumpFile, bool bankSelector) {
+    std::ofstream file(dumpFile, std::ios::binary);
     //Check if file is open (Dump file for bank 0)
-    if (!fileBank0.is_open()) {
-        logError("Memory bank 0 dump file cannot be opened as it has already been opened by another process");
+    if (!file.is_open()) {
+        logError("Memory dump file cannot be opened as it has already been opened by another process");
         exit(1);
     }
-    //Check if file is open (Dump file for bank 1)
-    if (!fileBank1.is_open()) {
-        logError("Memory bank 1 dump file cannot be opened as it has already been opened by another process");
+    if (bankSelector) {
+        file.write(reinterpret_cast<const char*>(memoryB1.data()), memoryB1.size());
+    } else {
+        file.write(reinterpret_cast<const char*>(memoryB0.data()), memoryB0.size());
     }
+    file.close();
 }
 
 //Nulls all bytes in both memory banks

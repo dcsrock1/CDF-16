@@ -1,5 +1,44 @@
 #include "include/storage.hpp"
 #include "include/logger.hpp"
+#include "include/util.hpp"
+#include <string>
+
+void Storage::loadImage(std::string imageFile, bool bankSelector) {
+    std::fstream file(imageFile, std::ios::binary);
+    //Check if file is open
+    if (!file.is_open()) {
+        logError("IMG file cannot be opened as it has already been opened by another process");
+        exit(1);
+    }
+
+    //Determine the file size
+    file.seekg(0, std::ios::end);
+    std::streampos fileSize = file.tellg();
+    file.seekg(0, std::ios::beg);
+
+    if (fileSize > MAX_FILE_SIZE) {
+        logError("IMG file is larger then the internal storage");
+        exit(1);
+    }
+
+    std::array<char, MAX_FILE_SIZE> bytes;
+
+    //Read the file content into the array
+    file.read(bytes.data(), fileSize);
+
+    //Bad bit detection
+    if (file.bad()) {
+        logError("Bad bit has been located in the IMG file, possibly corrupt file");
+        exit(1);
+    }
+    file.close();
+    //Copy contents of bytes array into the storage bank that has been selected
+    if (bankSelector) {
+        std::copy(std::begin(bytes), std::end(bytes), std::begin(storageB1));
+    } else {
+        std::copy(std::begin(bytes), std::end(bytes), std::begin(storageB0));
+    }
+}
 
 //Function to pull a byte from a storage bank
 int8_t Storage::getByte(uint16_t address, bool bankSelector, uint64_t& cycles) {

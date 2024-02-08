@@ -13,7 +13,6 @@ CPU::CPU(Memory memory, Storage storage, GPU gpu) : memory(memory), storage(stor
     C = 0;
     D = 0;
     memory.reset();
-    storage.reset();
     gpu.reset();
 }
 
@@ -34,6 +33,5 @@ void CPU::reset() {
     C = 0;
     D = 0;
     memory.reset();
-    storage.reset();
     gpu.reset();
 }
