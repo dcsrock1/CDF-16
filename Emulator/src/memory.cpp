@@ -91,6 +91,7 @@ void Memory::loadROM(std::string filename, bool bankSelector) {
         logDebug("Size check on ROM file has been completed");
     }
 
+    //Create array to read the file into
     std::array<char, MAX_FILE_SIZE> bytes;
 
     //Read the file content into the array
@@ -133,6 +134,7 @@ void Memory::dumpMem(std::string dumpFile, bool bankSelector) {
         logError("Memory dump file cannot be opened as it has already been opened by another process");
         exit(1);
     }
+    //Check bank selector and write the according memory bank to the dump file
     if (bankSelector) {
         logInfo("Writing data to a dump file from memory bank one");
         file.write(reinterpret_cast<const char*>(memoryB1.data()), memoryB1.size());
@@ -142,6 +144,7 @@ void Memory::dumpMem(std::string dumpFile, bool bankSelector) {
         file.write(reinterpret_cast<const char*>(memoryB0.data()), memoryB0.size());
         logInfo("Dump file for memory bank two has been written");
     }
+    //Close file after writing the dump file
     file.close();
     if (bankSelector) {
         logInfo("Memory dump file of bank 1 has been created");
