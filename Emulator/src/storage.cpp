@@ -4,18 +4,29 @@
 #include <string>
 #include <cstdio>
 
+
+//Function to save the contents of a storage bank into a disk image
+void Storage::saveImage(std::string imagefile, bool bankSelector) {
+    if (bankSelector) {
+        logInfo("Saving contents of storage bank 1 to disk image...");
+    }
+}
+
+//Function to load a disk image into the virtual storage
 void Storage::loadImage(std::string imageFile, bool bankSelector) {
     if (bankSelector) {
         logInfo("Loading image from file into storage bank one...");
     } else {
         logInfo("Loading image from file into storage bank zero...");
     }
-    std::fstream file(imageFile, std::ios::binary);
+    std::ifstream file(imageFile, std::ios::binary);
     //Check if file is open
-
     if (!file.is_open()) {
-        logError("IMG file cannot be opened as it has already been opened by another process");
+        logError("IMG file cannot be opened as it might have already been opened by another process");
+        file.close();
         exit(1);
+    } else {
+        logDebug("Open check on IMG file has been completed");
     }
 
     //Determine the file size
@@ -24,8 +35,9 @@ void Storage::loadImage(std::string imageFile, bool bankSelector) {
     std::streampos fileSize = file.tellg();
     file.seekg(0, std::ios::beg);
     logDebug("Running size check on selected IMG file...");
-    if (fileSize == MAX_FILE_SIZE) {
+    if (fileSize != MAX_FILE_SIZE) {
         logError("IMG file is larger then the internal storage");
+        file.close();
         exit(1);
     } else {
         logDebug("Size check on selected IMG file has been completed");
@@ -39,16 +51,18 @@ void Storage::loadImage(std::string imageFile, bool bankSelector) {
     //Bad bit detection
     if (file.bad()) {
         logError("Bad bit has been located in the IMG file, possibly corrupt file");
+        file.close();
         exit(1);
     }
     file.close();
     //Copy contents of bytes array into the storage bank that has been selected
     if (bankSelector) {
         std::copy(std::begin(bytes), std::end(bytes), std::begin(storageB1));
+        logInfo("Image file loaded into storage bank one");
     } else {
         std::copy(std::begin(bytes), std::end(bytes), std::begin(storageB0));
+        logInfo("Image file loaded into storage bank zero");
     }
-    logInfo("");
 }
 
 //Function to pull a byte from a storage bank

@@ -12,6 +12,7 @@ public:
     void setWord(uint16_t address, int16_t data, bool bankSelector, uint64_t& cycles);
     void erase();
     void loadImage(std::string imageFile, bool bankSelector);
+    void saveImage(std::string imageFile, bool bankSelector);
 private:
     std::array<uint8_t, 65536> storageB0, storageB1;
 };

@@ -61,20 +61,21 @@ void Memory::setWord(uint16_t address, int16_t data, bool bankSelector, uint64_t
 }
 
 //This will load a ROM file into RAM for use by the processor
-void Memory::loadROM(std::string filename, bool bankSelector) {
+void Memory::loadROM(std::string romFile, bool bankSelector) {
     if (bankSelector) {
         logInfo("Loading ROM from file into memory bank one...");
     } else {
         logInfo("Loading ROM from file into memory bank zero...");
     }
-    std::ifstream file(filename, std::ios::binary);
+    std::ifstream file(romFile, std::ios::binary);
     //Check if file is open
     logDebug("Running open check on selected ROM file...");
     if (!file.is_open()) {
-        logError("ROM file cannot be opened as it has already been opened by another process");
+        logError("ROM file cannot be opened as it might have already been opened by another process");
+        file.close();
         exit(1);
     } else {
-        logDebug("Open check has on ROM file has been completed");
+        logDebug("Open check on ROM file has been completed");
     }
     
     //Determine the file size
@@ -84,8 +85,9 @@ void Memory::loadROM(std::string filename, bool bankSelector) {
     file.seekg(0, std::ios::beg);
     logDebug("ROM file size determined");
     logDebug("Running size check on selected ROM file...");
-    if (fileSize == MAX_FILE_SIZE) {
+    if (fileSize != MAX_FILE_SIZE) {
         logError("ROM file is larger then the internal memory");
+        file.close();
         exit(1);
     } else {
         logDebug("Size check on ROM file has been completed");
@@ -103,6 +105,7 @@ void Memory::loadROM(std::string filename, bool bankSelector) {
     logDebug("Running corruption check on ROM file");
     if (file.bad()) {
         logError("Bad bit has been located in ROM file, possibly corrupt file");
+        file.close();
         exit(1);
     } else {
         logDebug("Corruption check on ROM file has been completed");

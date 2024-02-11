@@ -3,17 +3,21 @@
 #include "include/memory.hpp"
 #include "include/storage.hpp"
 #include "include/cpu.hpp"
+#include "include/util.hpp"
+#include <cstdint>
 
 //Main program entry point
 int main(int argc, char* argv[]) {
-    logInfo("Starting object initialisation");
+    logInfo("Starting component initialisation");
     Memory memory;
-    logDebug("Memory class initialised");
+    memory.loadROM("main1.rom", 0);
+    logDebug("Memory component initialised");
     Storage storage;
-    logDebug("Storage class initialised");
+    storage.loadImage("main1.img", 0);
+    logDebug("Storage component initialised");
     GPU gpu;
-    logDebug("GPU class initialised");
+    logDebug("GPU component initialised");
     CPU cpu(memory, storage, gpu);
-    logDebug("CPU class initialised");
-    logInfo("All objects initialised");
+    logDebug("CPU component initialised");
+    logInfo("All components initialised");
 }

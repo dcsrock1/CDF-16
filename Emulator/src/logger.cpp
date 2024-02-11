@@ -29,7 +29,7 @@ void logWarning(std::string msg) {
 }
 
 void logError(std::string msg) {
-    std::cout << "[\033[31mWARNING\033[0m][" << getDateTime() << "]: " << msg << "\n";
+    std::cout << "[\033[31mERROR\033[0m][" << getDateTime() << "]: " << msg << "\n";
     std::ofstream file;
     file.open(LOG_FILE, std::ios::app);
     file << "[ERROR][" + getDateTime() + "]: " + msg + "\n";
