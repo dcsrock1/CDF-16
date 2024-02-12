@@ -7,9 +7,9 @@ class Memory {
 public:
     int8_t getByte(uint16_t address, bool bankSelector, uint64_t& cycles);
     int16_t getWord(uint16_t address, bool bankSelector, uint64_t& cycles);
-    void setByte(uint16_t address, int8_t data, bool bankSelector, uint64_t& cycles);
-    void setWord(uint16_t address, int16_t data, bool bankSelector, uint64_t& cycles);
-    void loadROM(std::string filename, bool bankSelector);
+    void setByte(uint16_t address, uint8_t data, bool bankSelector, uint64_t& cycles);
+    void setWord(uint16_t address, uint16_t data, bool bankSelector, uint64_t& cycles);
+    void loadROM(std::string romFile, bool bankSelector);
     void dumpMem(std::string dumpFile, bool bankSelector);
     void reset();
 private:

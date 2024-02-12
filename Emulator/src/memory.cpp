@@ -40,7 +40,7 @@ int16_t Memory::getWord(uint16_t address, bool bankSelector, uint64_t& cycles) {
 }
 
 //Function to set a single byte in either memory bank
-void Memory::setByte(uint16_t address, int8_t data, bool bankSelector, uint64_t& cycles) {
+void Memory::setByte(uint16_t address, uint8_t data, bool bankSelector, uint64_t& cycles) {
     //Once again increment cycles count
     cycles++;
     //Check which bank has been selected
@@ -52,11 +52,14 @@ void Memory::setByte(uint16_t address, int8_t data, bool bankSelector, uint64_t&
 }
 
 //This set word function is used to, modify the memory in 16 bit sections, it formats the input data into the correct endianness
-void Memory::setWord(uint16_t address, int16_t data, bool bankSelector, uint64_t& cycles) {
+void Memory::setWord(uint16_t address, uint16_t data, bool bankSelector, uint64_t& cycles) {
     cycles += 2;
     if (bankSelector) {
-        memoryB1[address] = static_cast<uint8_t>(data >> 8);
-        memoryB1[address + 1] = static_cast<uint8_t>(data);
+        memoryB1[address] = data >> 8;
+        memoryB1[address + 1] = data;
+    } else {
+        memoryB0[address] = data >> 8;
+        memoryB0[address + 1] = data;
     }
 }
 

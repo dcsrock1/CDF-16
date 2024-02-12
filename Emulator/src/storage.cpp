@@ -6,10 +6,30 @@
 
 
 //Function to save the contents of a storage bank into a disk image
-void Storage::saveImage(std::string imagefile, bool bankSelector) {
+void Storage::saveImage(std::string imageFile, bool bankSelector) {
     if (bankSelector) {
-        logInfo("Saving contents of storage bank 1 to disk image...");
+        logInfo("Saving contents of storage bank one to disk image...");
+    } else {
+        logInfo("Saving contents of storage bank zero to disk image...");
     }
+    std::ofstream file(imageFile, std::ios::binary);
+    if (!file.is_open()) {
+        logError("Storage save file cannot be opened as it has already been opened by another process");
+        file.close();
+        exit(1);
+    }
+    //Check bank selector and write the according storage bank to the IMG file
+    if (bankSelector) {
+        logInfo("Writing data to IMG file from storage bank one");
+        file.write(reinterpret_cast<const char*>(storageB1.data()), storageB1.size());
+        logInfo("Save file for memory bank one has been written");
+    } else {
+        logInfo("Writing data to IMG file from storage bank zero");
+        file.write(reinterpret_cast<const char*>(storageB0.data()), storageB0.size());
+        logInfo("Save file for storage bank zero has been written");
+    }
+    //Close file after writing the dump file
+    file.close();
 }
 
 //Function to load a disk image into the virtual storage
@@ -94,7 +114,7 @@ int16_t Storage::getWord(uint16_t address, bool bankSelector, uint64_t& cycles) 
 }
 
 //Method to set a byte in the storage bank that has been selected
-void Storage::setByte(uint16_t address, int8_t data, bool bankSelector, uint64_t& cycles) {
+void Storage::setByte(uint16_t address, uint8_t data, bool bankSelector, uint64_t& cycles) {
     cycles++; //Increment cycles
     if (bankSelector) {
         storageB1[address] = data; //Bank 1
@@ -104,14 +124,14 @@ void Storage::setByte(uint16_t address, int8_t data, bool bankSelector, uint64_t
 }
 
 //Operation to create a word in a storage bank of your choice
-void Storage::setWord(uint16_t address, int16_t data, bool bankSelector, uint64_t& cycles) {
+void Storage::setWord(uint16_t address, uint16_t data, bool bankSelector, uint64_t& cycles) {
     cycles += 2; //Increment cycles by two, it takes two for two bytes being fetched
     if (bankSelector) {
-        storageB1[address] = static_cast<uint8_t>(data >> 8);
-        storageB1[address + 1] = static_cast<uint8_t>(data);
+        storageB1[address] = data >> 8;
+        storageB1[address + 1] = data;
     } else {
-        storageB0[address] = static_cast<uint8_t>(data >> 8);
-        storageB0[address] = static_cast<uint8_t>(data);
+        storageB0[address] = data >> 8;
+        storageB0[address + 1] = data;
     }
 }
 
