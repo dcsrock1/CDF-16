@@ -54,7 +54,7 @@ std::string bths(uint8_t num) {
 //Convert a unsigned 16 bit integer to a string format 0x<hex value>
 std::string wths(uint16_t num) {
   if (!num) {
-    return "0x00";
+    return "0x0000";
   } else {
     //Create a string stream for the converted family
     std::stringstream stream;
