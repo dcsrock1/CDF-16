@@ -9,4 +9,7 @@ file(GLOB HEADER_FILES ${INCLUDE_DIR}/*.hpp) #Initialises the header files
 file(GLOB SOURCE_FILES ${SRC_DIR}/*.cpp) #Initialises the source files
 
 add_executable(CDF-16-EMU ${SOURCE_FILES} ${HEADER_FILES}) #Sets the executable target
+
+target_link_libraries(CDF-16-EMU SDL2) #Links to sdl2 lib
+
 target_include_directories(CDF-16-EMU PRIVATE ${INCLUDE_DIR}) #Includes files from include directory

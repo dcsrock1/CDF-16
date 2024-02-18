@@ -2,7 +2,7 @@
 #include "include/logger.hpp"
 #include "include/util.hpp"
 #include <string>
-#include <cstdio>
+#include <fstream>
 
 
 //Function to save the contents of a storage bank into a disk image

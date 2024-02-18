@@ -2,9 +2,7 @@
 #include "include/logger.hpp"
 #include "include/util.hpp"
 #include <cstdint>
-#include <cstdio>
 #include <fstream>
-#include <cstddef>
 
 //Function to get byte from memory banks
 int8_t Memory::getByte(uint16_t address, bool bankSelector, uint64_t& cycles) {
