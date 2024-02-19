@@ -8,7 +8,7 @@
 //Main program entry point
 int main(int argc, char* argv[]) {
     ParsedArguments args = parseArguments(argc, argv);
-    logInfo("Starting component initialisation");
+    logInfo("Starting component initialisation...");
     Memory memory;
     memory.loadROM("main1.rom", 0);
     logDebug("Memory component initialised");

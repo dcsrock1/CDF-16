@@ -22,7 +22,7 @@ void Storage::saveImage(std::string imageFile, bool bankSelector) {
     if (bankSelector) {
         logInfo("Writing data to IMG file from storage bank one");
         file.write(reinterpret_cast<const char*>(storageB1.data()), storageB1.size());
-        logInfo("Save file for memory bank one has been written");
+        logInfo("Save file storage bank one has been written");
     } else {
         logInfo("Writing data to IMG file from storage bank zero");
         file.write(reinterpret_cast<const char*>(storageB0.data()), storageB0.size());

@@ -8,5 +8,6 @@ struct Flags {
     bool screenEnable : 1;
     bool interruptEnable : 1;
     bool interruptTriggered : 1;
-    void defualt();
+    void default_flags();
 } __attribute__((packed));
+

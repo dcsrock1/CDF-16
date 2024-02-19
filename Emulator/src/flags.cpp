@@ -1,6 +1,6 @@
 #include "include/flags.hpp"
 
-void Flags::defualt() {
+void Flags::default_flags() {
     halt = 0;
     reset = 0;
     memoryBankSelector = 0;
