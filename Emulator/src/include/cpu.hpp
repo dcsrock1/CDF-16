@@ -16,6 +16,7 @@ public:
     void setFlags(uint8_t value, uint64_t& cycles);
     void setPC(uint16_t value, uint64_t& cycles);
     void setSP(uint16_t value, uint64_t& cycles);
+    void setAC(uint16_t value, uint64_t& cycles);
     void setA(uint8_t value, uint64_t& cycles);
     void setB(uint8_t value, uint64_t& cycles);
     void setC(uint16_t value, uint64_t& cycles);
@@ -23,6 +24,7 @@ public:
     Flags getFlags(uint64_t& cycles);
     uint16_t getPC(uint64_t& cycles);
     uint16_t getSP(uint64_t& cycles);
+    uint16_t getAC(uint64_t& cycles);
     uint8_t getA(uint64_t& cycles);
     uint8_t getB(uint64_t& cycles);
     uint16_t getC(uint64_t& cycles);

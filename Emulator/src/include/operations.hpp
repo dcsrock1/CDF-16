@@ -2,9 +2,6 @@
 #include <cstdint>
 #include "cpu.hpp"
 
-#define LDAC_IM_M 0x01
-constexpr uint8_t LDAC_IM_P = 0x01;
-
 class Operations {
 public:
     static constexpr uint8_t NOP_OP = 0x00; // No Operation
