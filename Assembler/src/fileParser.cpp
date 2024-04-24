@@ -39,10 +39,11 @@ std::vector<uint8_t> translate(std::string file) {
             exit(1);
         }   
     }   
-
+ 
     std::vector<uint8_t> result;
     for (const std::array<std::string, 2> instruction : instructionsFormed) {
-        
+        result.push_back(tMap.at(instruction[0]));
+        result.push_back(tMap.at(instruction[1]));
     }
-    
+    return result;
 } 
